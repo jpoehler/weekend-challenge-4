@@ -27,7 +27,7 @@ pg.connect(connectionString, function(err, client, done){
                               'CONSTRAINT tasks_pkey PRIMARY KEY (id))');
 
       var task = req.body.task;
-      var status = 'not completed'
+      var status = req.body.status;
 
       var query = client.query('INSERT INTO tasks (task, status) VALUES ($1, $2)' +
                                 'RETURNING id, task, status', [task, status]);

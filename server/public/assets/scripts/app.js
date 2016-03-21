@@ -50,29 +50,38 @@ function render(data) {
   $tasks.append('<div class="task-list"></div>');
   var $el = $tasks.children().last();
   data.forEach(function (element) {
-    $el.append('<p>Task: ' + element.task + '<br>' + 'Status: ' + element.status + '</p>' + '<br>');
-    $el.append('<button class="change-status">Done!</button>' + ' ' + '<button class="delete-task">Delete Task</button>');
+    $el.append('<p>Task: ' + element.task + '<br>' + 'Status: ' + element.status + '<br>' + '<br>' +
+    '<button class="change-status">Done!</button>' + ' ' +
+    '<button class="delete-task">Delete Task</button>' + '</p>');
   });
   $('#task-form').trigger('reset');
 }
 
 function updateTask() {
   console.log('Done! button works');
-    // $.ajax({
-    //     type: 'PUT',
-    //     url: '/tasks',
-    //     data: values,
-    //     success: render
-          //  console.log(data);
-    //});
+  var taskID = $(this).data('tasks.id');
+  var updateStatus = $(this).data('tasks.status')
+  values = {'taskID' : taskID, 'completed' : updateStatus};
+  $.ajax({
+      type: 'POST',
+      url: '/tasks',
+      success: function(response) {
+          console.log(response);
+          getData();
+        }
+      });
 }
 
-    function deleteTask() {
+function deleteTask() {
       console.log('Delete button works');
+      var taskID = $(this).data('tasks.id');
+      var values = {'taskID' : taskID}
         $.ajax({
             type: 'DELETE',
             url: '/tasks',
             data: values,
-            success: render,
-            console.log(data)
+            success: function(response){
+              getData();
+            }
         });
+      }

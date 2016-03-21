@@ -1,0 +1,55 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+#task-form {
+  width: 500px;
+  margin-right: auto;
+  margin-left:auto;
+  background-color: #d4ddcb;
+  border: 2px solid black;
+  border-radius: 15px 15px 15px 15px;
+  padding: 25px 25px 25px 25px;
+
+}
+
+#submit-button {
+  background-color: #3d296b;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+
+p {
+  width: 500px;
+  margin-right: auto;
+  margin-left:auto;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: #bcb8bb;
+  padding: 25px 25px 25px 25px;
+}
+
+
+.change-status {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.delete-task {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+}
